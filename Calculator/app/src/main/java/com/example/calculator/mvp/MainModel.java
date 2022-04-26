@@ -38,14 +38,17 @@ public class MainModel {
         spotIsAtTop = false;
         hasResult = false;
 
-        currentInput = new StringBuffer();
+        currentInput = new StringBuffer("0");
         result = 0;
         operator = -1;
     }
 
     public String setNumber(int number) {
+        if (Double.parseDouble(currentInput.toString()) == 0 && !currentInput.toString().contains("."))
+            currentInput = new StringBuffer();
         currentInput.append(number);
         isNew = false;
+        spotIsAtTop = false;
         return currentInput.toString();
     }
 
@@ -64,6 +67,8 @@ public class MainModel {
     }
 
     public String setOperator(@Operator int operator) {
+        hasSpot = false;
+        spotIsAtTop = false;
         if (isNew)
             return "";
         if (hasResult) {
@@ -81,7 +86,7 @@ public class MainModel {
     private void saveResult() {
         result = convertDouble();
         hasResult = true;
-        currentInput = new StringBuffer();
+        currentInput = new StringBuffer("0");
     }
 
     private double convertDouble() {
@@ -109,19 +114,19 @@ public class MainModel {
                 result %= convertDouble();
                 break;
         }
-        currentInput = new StringBuffer();
-
+        currentInput = new StringBuffer("0");
     }
 
     //取反
     public String doOpposite() {
         if (isNew)
             return "";
-        //todo 1、tv上数字要取反 2、两个述职要一起改？
-        if (TextUtils.isEmpty(currentInput)) {
+        //这个if处理的是等号后的结果数
+        if (currentInput.toString().equals("0")) {
             result = -result;
             return String.valueOf(result);
         }
+        //这个if处理正在输入的数
         if (currentInput.toString().contains("-")) {
             currentInput.deleteCharAt(0);
         } else {

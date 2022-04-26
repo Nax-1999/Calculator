@@ -1,5 +1,7 @@
 package com.example.calculator.mvp;
 
+import android.text.TextUtils;
+
 public class MainPresenter {
 
     MainView view;
@@ -14,13 +16,12 @@ public class MainPresenter {
     public void saveNumber(String text) {
         String res = "";
         if (text.equals(".")) {
-            view.showToast("暂不支持小数点");
-            return;
-//            res = model.addSpot();
+            res = model.addSpot();
         } else {
             res = model.setNumber(Integer.parseInt(text));
         }
-        refreshTextView(res);
+        if (!TextUtils.isEmpty(res))
+            refreshTextView(res);
     }
 
     public void saveOperator(String text) {

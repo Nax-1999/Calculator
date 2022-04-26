@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/deep_grey_button_bg.xml" value="0.25833333333333336" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/deep_grey_button_circle_bg.xml" value="0.25833333333333336" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/grey_button_circle_bg.xml" value="0.25833333333333336" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/soft_grey_button_circle_bg.xml" value="0.25833333333333336" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/ss.xml" value="0.25833333333333336" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/yellow_button__circle_bg.xml" value="0.3153846153846154" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/drawable/yellow_button_circle_bg.xml" value="0.25833333333333336" />
+        <entry key="..\:/Program Projects/Calculator/app/src/main/res/layout/activity_main.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

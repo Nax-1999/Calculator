@@ -4,6 +4,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.StringDef;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     private static final String SET = "set";
     private static final String NUMBER = "number";
     private static final String OPERATOR = "operator";
+
+    private Button selectedOperator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,15 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void resetOperatorBg() {
+        if (selectedOperator != null) {
+            selectedOperator.setBackground(getDrawable(R.drawable.yellow_button_circle_bg));
+            selectedOperator.setTextColor(getResources().getColor(R.color.white));
+            selectedOperator = null;
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -74,9 +86,22 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         } else if (OPERATOR.equals(tag)) {
             saveOperator(button.getText().toString());
             showToast("点击了运算符");
+            if (!button.getText().equals("=")) {
+                onOperatorSelected(button);
+            }
         } else {
             doOpposite();
         }
+    }
+
+    private void onOperatorSelected(Button button) {
+        if (selectedOperator != null) {
+            selectedOperator.setBackground(getDrawable(R.drawable.yellow_button_circle_bg));
+            selectedOperator.setTextColor(getResources().getColor(R.color.white));
+        }
+        button.setBackground(getDrawable(R.drawable.operator_btn_selected_bg));
+        button.setTextColor(getResources().getColor(R.color.yellow));
+        selectedOperator = button;
     }
 
     private void doOpposite() {

@@ -70,7 +70,7 @@ public class MainModel {
         hasSpot = false;
         spotIsAtTop = false;
         if (isNew)
-            return "";
+            return "false";
         if (hasResult) {
             if (!TextUtils.isEmpty(currentInput))
                 cal();

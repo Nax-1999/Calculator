@@ -16,5 +16,5 @@ public interface MainView {
 
     void showToast(String string);
 
-
+    void resetOperatorBg();
 }

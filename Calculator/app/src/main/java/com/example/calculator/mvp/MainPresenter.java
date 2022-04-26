@@ -45,12 +45,14 @@ public class MainPresenter {
                 break;
             case "=" :
                 refreshTextView(String.valueOf(model.getResult()));
+                view.resetOperatorBg();
                 return;
         }
         if (!res.equals("")) {
             refreshTextView(res);
             return;
         }
+        view.resetOperatorBg();
         refreshTextView("0");
     }
 

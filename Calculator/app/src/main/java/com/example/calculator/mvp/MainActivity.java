@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-public class MainActivity extends AppCompatActivity implements MainView, View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements MainView, View.OnClickListener {
 
     MainPresenter presenter;
     TextView textView;
@@ -35,8 +36,16 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         presenter = new MainPresenter(this);
         textView = findViewById(R.id.result);
         presenter.reset();
+
+        initImmersionBar();
     }
 
+    private void initImmersionBar() {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        //注意要清除 FLAG_TRANSLUCENT_STATUS flag
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+    }
 
     @Override
     public void saveNumber(String tag) {
@@ -73,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
             selectedOperator = null;
         }
     }
-
 
     @Override
     public void onClick(View v) {

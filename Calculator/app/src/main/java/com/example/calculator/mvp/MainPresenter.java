@@ -12,7 +12,6 @@ public class MainPresenter {
         model = new MainModel();
     }
 
-
     public void saveNumber(String text) {
         String res = "";
         if (text.equals(".")) {
